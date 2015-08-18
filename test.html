@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Tornado Blog</title>
+
+
+<link rel="alternate" href="/feed" type="application/atom+xml" title="Tornado Blog">
+
+</head>
+
+<body>
+
+<div id="body">
+
+<div id="header">
+
+<div style="float:right">
+
+</div>
+
+<h1><a href="/">Tornado Blog</a></h1>
+
+</div>
+
+<div id="content">
+
+<div><a href="/archive">Archive</a></div>
+
+<script src="http://h5.bwgame.com.cn/Scripts/jquery-2.1.4.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+
+jQuery(document).ready(function(){
+
+$.ajax({
+beforeSend: function (xhr) {
+                        xhr.setRequestHeader("Mycookie", "fdsafdsafsfadsfa");
+						//xhr.setRequestHeader("Set-Cookie", "nihao");
+                    },
+type: 'POST',
+
+url: 'http://test.com:3000/writecookie',
+xhrFields: {
+      withCredentials: true
+   },
+crollDomain:true,
+success: function(output, status, xhr) {
+
+console.log("##document.cookie:##     \n" +document.cookie);
+console.log("##allHeaders:##       \n" +xhr.getAllResponseHeaders());
+},
+cache: false
+});
+});
+</script>
+</div>
+</div>
+</body>
+</html>
